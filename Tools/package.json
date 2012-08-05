@@ -1,0 +1,29 @@
+{
+  "name": "webmatrix-html-generator",
+  "preferGlobal": "false",
+  "version": "0.1.0",
+  "author": "Justin Beckwith <justbe@microsoft.com>",
+  "description": "a recursive directory copying markdown to html generating mess of code",
+  "contributors": [
+    {
+      "name": "Justin Beckwith",
+      "email": "justbe@microsoft.com"
+    }
+  ],
+  "main": "./generate-html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustinBeckwith/WebMatrixDocs.git"
+  },
+  "dependencies": {
+    "rimraf": "~2.0.2",
+    "markdown": "~0.4.0"
+  },
+  "noAnalyze": true,
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.6"
+  }
+}
