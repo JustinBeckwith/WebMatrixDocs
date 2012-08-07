@@ -1,4 +1,5 @@
 var markdown = require('markdown').markdown;
+var md = require("node-markdown").Markdown;
 var fs = require('fs');
 var rimraf = require('rimraf');
 
@@ -48,7 +49,8 @@ function generateOutput(dir, callback) {
 					} else {
 						fs.readFile(file, 'utf8', function(err, data) {
 							if (err) console.log('ERROR: ' + err);
-							var output = markdown.toHTML(data);
+							//var output = markdown.toHTML(data);
+							var output = md(data);
 							var outputPath = outputDir + file.substring(2, file.length-2) + "html";
 							console.log('writing out to: ' + outputPath);
 							fs.writeFile(outputPath, output, 'utf8', function(err) {
