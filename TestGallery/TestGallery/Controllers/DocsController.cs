@@ -14,8 +14,6 @@ namespace TestGallery.Controllers
 
         public ActionResult Index(string path)
         {
-			if (String.IsNullOrEmpty(path)) path = "develop";
-
 			// load the side bar
 			using (var sideBarFile = new StreamReader(Server.MapPath("~/StaticContent/develop/extend/sidebar.html")))
 			{
@@ -25,10 +23,10 @@ namespace TestGallery.Controllers
 			}
 
 			// load the content
-			var localPath = Server.MapPath(string.Format("~/StaticContent/{0}.html", path));
+			var localPath = Server.MapPath(string.Format("~/StaticContent/develop/{0}.html", path));
 			if (!System.IO.File.Exists(localPath))
 			{
-				localPath = Server.MapPath(string.Format("~/StaticContent/{0}/default.html", path));
+				localPath = Server.MapPath(string.Format("~/StaticContent/develop/{0}/default.html", path));
 			}
 
 			using (var contentFile = new StreamReader(localPath))
@@ -36,7 +34,6 @@ namespace TestGallery.Controllers
 				ViewBag.content = contentFile.ReadToEnd();
 			}
 
-			ViewBag.docPath = path;
             return View();
         }
 
