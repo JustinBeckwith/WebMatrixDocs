@@ -1,0 +1,1 @@
+# Making your extension discoverable

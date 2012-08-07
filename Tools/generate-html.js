@@ -2,14 +2,14 @@ var markdown = require('markdown').markdown;
 var fs = require('fs');
 var rimraf = require('rimraf');
 
-var inputDir = '../DevCenter';
-var outputDir = '../Output';
+var inputDir = '../develop';
+var outputDir = '../TestGallery/TestGallery/StaticContent';
 
 
 function clearOutputDir(callback) {
 	// clear the output directory
 	var clearCount = 0;
-	fs.readdir(outputDir, function(err, files) {
+	fs.readdir(outputDir + '/develop', function(err, files) {
 		if (err) console.log('Error! ' + err);
 		if (files.length == 0) callback();
 		files.forEach(function(file) {
@@ -36,6 +36,7 @@ function generateOutput(dir, callback) {
 					if (stat && stat.isDirectory()) {
 
 						// create the directory in the output tree
+						console.log('current file: ' + file)
 						var mirrorDir = outputDir + file.substring(2);
 						console.log('creating directory: ' + mirrorDir )
 						fs.mkdir(mirrorDir, 0777, function(err) {
@@ -48,7 +49,7 @@ function generateOutput(dir, callback) {
 						fs.readFile(file, 'utf8', function(err, data) {
 							if (err) console.log('ERROR: ' + err);
 							var output = markdown.toHTML(data);
-							var outputPath = "../Output" + file.substring(2, file.length-2) + "html";
+							var outputPath = outputDir + file.substring(2, file.length-2) + "html";
 							console.log('writing out to: ' + outputPath);
 							fs.writeFile(outputPath, output, 'utf8', function(err) {
 								if (err) 
@@ -66,13 +67,9 @@ function generateOutput(dir, callback) {
 }
 
 clearOutputDir(function() {
-	var outD = outputDir + inputDir.substring(2);
-	console.log('creating directory >> ' + outD);
-	fs.mkdir(outD, 077, function(err) {
-		generateOutput(inputDir, function (err, results) {
-			if (err) console.log(err);
-			console.log('DONE!');
-		});
+	generateOutput(inputDir, function (err, results) {
+		if (err) console.log(err);
+		console.log('DONE!');
 	});
 });
 

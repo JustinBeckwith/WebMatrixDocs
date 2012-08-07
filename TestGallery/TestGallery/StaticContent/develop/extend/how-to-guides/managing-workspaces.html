@@ -1,0 +1,19 @@
+<h1>How to manage Workspaces</h1>
+
+<p>This guide will demonstrate how to use the WebMatrix SDK to manage different workspaces in WebMatrix.</p>
+
+<pre><code>/// &lt;summary&gt;</code></pre>
+
+<p>
+	/// Called when the WebMatrixHost&#39;s WorkspaceChanged event fires.
+	/// &lt;/summary&gt;
+	/// &lt;param name=&quot;sender&quot;&gt;Event source.&lt;/param&gt;
+	/// &lt;param name=&quot;e&quot;&gt;Event arguments.&lt;/param&gt;
+	private void WebMatrixHost<em>WorkspaceChanged(object sender, WorkspaceChangedEventArgs e)
+	{
+		</em>ribbonGroup.IsVisible = e.NewWorkspace is IEditorWorkspace &amp;&amp; _isNodeSite;
+	}</p>
+
+<p>There are four workspaces in WebMatrix that identify major areas of the application:</p>
+
+<ol><li>Site</li><li>Editor</li><li>Database</li><li>Reports</li></ol>
