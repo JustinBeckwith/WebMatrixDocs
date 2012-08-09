@@ -1,0 +1,12 @@
+﻿@using TestGallery;
+@{
+    ViewBag.Title = "Index";
+	Layout = "~/Views/Docs/_DocLayout.cshtml";
+}
+
+@section sidebar {
+	@Html.Raw(ViewBag.sidebar)
+}
+
+
+@Html.Raw(ViewBag.content)

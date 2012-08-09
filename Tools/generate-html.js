@@ -1,7 +1,7 @@
-var markdown = require('markdown').markdown;
 var md = require("node-markdown").Markdown;
 var fs = require('fs');
 var rimraf = require('rimraf');
+var ncp = require('ncp').ncp;
 
 var inputDir = '../develop';
 var outputDir = '../TestGallery/TestGallery/StaticContent';
@@ -32,34 +32,43 @@ function generateOutput(dir, callback) {
 		if (err) return callback(err);
 		if (files !== undefined) {
 			files.forEach(function(file) {
+				var fileNameShort = file;
 				file = dir + '/' + file;
 				fs.stat(file, function(err, stat) {
 					if (stat && stat.isDirectory()) {
-
 						// create the directory in the output tree
-						console.log('current file: ' + file)
+						//console.log('current file: ' + file)
 						var mirrorDir = outputDir + file.substring(2);
-						console.log('creating directory: ' + mirrorDir )
-						fs.mkdir(mirrorDir, 0777, function(err) {
-							if (err) console.log('error creating mirror dir >> ' + err);
-								generateOutput(file, function(err, results) {
-								console.log('DANGER: ' + err);
+						if (fileNameShort == "Media") {
+							// just xcopy any media directories							
+							console.log('ncp copy: \r\n\t' + file + '\r\n\t' + mirrorDir);
+							ncp(file, mirrorDir, function(err) {
+								if (err) console.log('error recursive copy media: ' + err);
 							});
-						})
-					} else {
+						}
+						else {							
+							//console.log('creating directory: ' + mirrorDir )
+							fs.mkdir(mirrorDir, 0777, function(err) {
+								if (err) console.log('error creating mirror dir >> ' + err);
+									generateOutput(file, function(err, results) {
+									console.log('ERROR: ' + err);
+								});
+							});
+						}
+
+					} else {						
 						fs.readFile(file, 'utf8', function(err, data) {
-							if (err) console.log('ERROR: ' + err);
-							//var output = markdown.toHTML(data);
+							if (err) console.log('ERROR: ' + err);							
 							var output = md(data);
 							var outputPath = outputDir + file.substring(2, file.length-2) + "html";
-							console.log('writing out to: ' + outputPath);
+							//console.log('writing out to: ' + outputPath);
 							fs.writeFile(outputPath, output, 'utf8', function(err) {
 								if (err) 
 									console.log('error writing output file >> ' + err);
 								else 
 									console.log('output complete: ' + outputPath);
 							});
-							console.log('Touching file: ' + file);
+							//console.log('Touching file: ' + file);
 						});
 					}
 				});

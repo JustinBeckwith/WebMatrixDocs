@@ -2,6 +2,7 @@
 - [WebMatrix Extensibility](~/develop/extend/overview/webmatrix-extensibility)
 - [Creating an Account](~/develop/extend/overview/creating-an-account)
 - [Publishing your Extension](~/develop/extend/overview/publishing-your-extension)
+- [WebMatrix and MEF](~/develop/extend/overview/webmatrix-and-mef)
 
 ## How To Guides
 - [Managing Workspaces](~/develop/extend/how-to-guides/managing-workspaces)

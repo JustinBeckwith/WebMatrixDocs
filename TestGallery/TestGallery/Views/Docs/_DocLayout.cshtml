@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>WebMatrix Gallery</title>
+	<title>WebMatrix Extension Gallery</title>
 	<link href="http://extensions.webmatrix.com/Content/orchard.css" rel="stylesheet" type="text/css" />
 	<link href="http://extensions.webmatrix.com/Content/nuget.css" rel="stylesheet" type="text/css" />
 	<!--[if IE 7]><link href="/Content/ie7.css" media="screen, projection" rel="stylesheet" type="text/css" /><![endif]-->
@@ -11,16 +11,44 @@
 	<link href="http://extensions.webmatrix.com/Content/webmatrix.ico" rel="shortcut icon" type="image/x-icon" />
 	<script src="http://extensions.webmatrix.com/Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="http://extensions.webmatrix.com/Scripts/html5.js" type="text/javascript"></script>
+
+	@*<script src="~/Plugins/lightbox/js/lightbox.js"></script>
+	<link href="~/Plugins/lightbox/css/lightbox.css" rel="stylesheet" />*@
+
 	<script>(function (d) { d.className = "dyn" + d.className.substring(6, d.className.length); })(document.documentElement);</script>
 
 	<style type="text/css">
+
+		#doc-content video {
+			margin-bottom: 20px;
+		}
+	 
+		#doc-content h2 {
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}			
+		
+		#doc-content h3 {
+			margin: 0px;
+			padding: 0px;
+		}			
+		
+		#doc-content p {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	 
 		#wmx-side-bar h2 {
-			font-size: 1.2em;
+			font-size: 1.5em;
 			font-weight: bold;
 		}
 
 		#wmx-side-bar ul li :link :visited {
-			color: #5f5e5e;
+			color: #4A91AC;
+		}
+
+		#wmx-side-bar ul li {
+			font-size: 1.2em;
 		}
 
 		#wmx-side-bar ul li :hover {
@@ -44,6 +72,13 @@
 
 		#disqus_thread {
 			margin-top: 50px;
+		}
+
+		iframe {
+			padding: 10px;
+			border: 1px solid #ccc;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	</style>
 
@@ -148,6 +183,8 @@
 			$('code').contents().unwrap().parent().attr("class", "brush: csharp");
 
 			SyntaxHighlighter.all()
+
+			//$("img").wrap("a").attr('rel', 'lightbox');
 		});
 		
 	</script>

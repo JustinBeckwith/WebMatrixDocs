@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestGallery</RootNamespace>
     <AssemblyName>TestGallery</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,17 +43,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -116,6 +115,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.0.0\lib\WebGrease.dll</HintPath>
@@ -129,14 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DocsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlExtensions.cs" />
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +166,105 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\config.rb" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCore.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreDefault.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreDjango.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreEclipse.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreEmacs.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreFadeToGrey.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreMDUltra.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreMidnight.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shCoreRDark.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeDefault.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeDjango.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeEclipse.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeEmacs.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeFadeToGrey.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeMDUltra.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeMidnight.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\shThemeRDark.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\compass\_theme_template.scss" />
+    <Content Include="Plugins\SyntaxHighlighter\LGPL-LICENSE" />
+    <Content Include="Plugins\SyntaxHighlighter\MIT-LICENSE" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\.rvmrc" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\webrick.rb" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\webrick.sh" />
+    <None Include="Properties\PublishProfiles\demo-gallery - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\demo-gallery - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.6.2-vsdoc.js" />
+    <Content Include="Plugins\SyntaxHighlighter\index.html" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shAutoloader.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushAS3.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushBash.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushCpp.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushCss.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushDiff.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushErlang.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushJava.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushJScript.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushPerl.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushPhp.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushPlain.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushPython.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushRuby.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushSass.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushScala.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushSql.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushVb.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shBrushXml.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shCore.js" />
+    <Content Include="Plugins\SyntaxHighlighter\scripts\shLegacy.js" />
+    <Content Include="Plugins\SyntaxHighlighter\src\shAutoloader.js" />
+    <Content Include="Plugins\SyntaxHighlighter\src\shCore.js" />
+    <Content Include="Plugins\SyntaxHighlighter\src\shLegacy.js" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCore.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreDefault.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreDjango.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreEclipse.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreEmacs.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreMidnight.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shCoreRDark.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeDefault.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeDjango.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeEclipse.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeEmacs.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeMidnight.css" />
+    <Content Include="Plugins\SyntaxHighlighter\styles\shThemeRDark.css" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\brushes\sass.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\brushes_tests.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\001_basic.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\002_brushes.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\003_script_tag.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\004_url_parsing.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\005_no_gutter.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\006_pad_line_numbers.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\007_collapse.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\007_collapse_interaction.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\008_first_line.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\009_class_name.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\010_highlight.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\011_smart_tabs.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\012_server_side.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\013_html_script.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\cases\014_legacy.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\commonjs_tests.js" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\js\jquery-1.4.2.js" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\js\qunit.css" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\js\qunit.js" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\syntaxhighlighter_tests.html" />
+    <Content Include="Plugins\SyntaxHighlighter\tests\theme_tests.html" />
     <Content Include="Scripts\jquery-1.6.2.js" />
     <Content Include="Scripts\jquery-1.6.2.min.js">
       <DependentUpon>jquery-1.6.2.js</DependentUpon>
@@ -194,6 +289,27 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="StaticContent\develop\default.html" />
+    <Content Include="StaticContent\develop\extend\best-practices\discoverability.html" />
+    <Content Include="StaticContent\develop\extend\best-practices\performance.html" />
+    <Content Include="StaticContent\develop\extend\best-practices\performances.html" />
+    <Content Include="StaticContent\develop\extend\best-practices\troubleshooting.html" />
+    <Content Include="StaticContent\develop\extend\default.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\app-specific-extensions.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\browser-providers.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\customizing-the-ribbon.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\default.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\dialogs-and-notifications.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\editor-interactions.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\managing-workspaces.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\the-task-panel.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\using-preferences.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\working-with-commands.html" />
+    <Content Include="StaticContent\develop\extend\how-to-guides\working-with-files.html" />
+    <Content Include="StaticContent\develop\extend\overview\creating-an-account.html" />
+    <Content Include="StaticContent\develop\extend\overview\publishing-your-extension.html" />
+    <Content Include="StaticContent\develop\extend\overview\webmatrix-extensibility.html" />
+    <Content Include="StaticContent\develop\extend\sidebar.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -240,6 +356,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="StaticContent\develop\extend\Media\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

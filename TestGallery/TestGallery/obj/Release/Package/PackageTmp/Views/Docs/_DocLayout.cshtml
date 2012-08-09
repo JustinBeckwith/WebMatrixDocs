@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="static ">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>WebMatrix Gallery</title>
+	<link href="http://extensions.webmatrix.com/Content/orchard.css" rel="stylesheet" type="text/css" />
+	<link href="http://extensions.webmatrix.com/Content/nuget.css" rel="stylesheet" type="text/css" />
+	<!--[if IE 7]><link href="/Content/ie7.css" media="screen, projection" rel="stylesheet" type="text/css" /><![endif]-->
+
+	<link href="http://extensions.webmatrix.com/Content/webmatrix.ico" rel="shortcut icon" type="image/x-icon" />
+	<script src="http://extensions.webmatrix.com/Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script src="http://extensions.webmatrix.com/Scripts/html5.js" type="text/javascript"></script>
+	<script>(function (d) { d.className = "dyn" + d.className.substring(6, d.className.length); })(document.documentElement);</script>
+
+	<style type="text/css">
+		#wmx-side-bar h2 {
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+
+		#wmx-side-bar ul li :link :visited {
+			color: #5f5e5e;
+		}
+
+		#wmx-side-bar ul li :hover {
+			text-decoration: none;
+			color: #0099cc;
+		}
+
+		ol {
+			margin-left: 20px;
+		}
+
+		#doc-content {
+			float: left;
+			width: 750px;
+		}
+
+
+		#layout-footer {
+			clear: both;
+		}
+
+		#disqus_thread {
+			margin-top: 50px;
+		}
+	</style>
+
+	<script src="~/Plugins/SyntaxHighlighter/scripts/shCore.js"></script>
+	<script src="~/Plugins/SyntaxHighlighter/scripts/shBrushCSharp.js"></script>
+
+	<link href="~/Plugins/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="~/Plugins/SyntaxHighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	
+
+</head>
+<body>
+	<div id="layout-wrapper">
+		<header id="layout-header" class="group">
+			<div class="zone zone-header">
+				<h1 id="branding"><a href="/">WebMatrix Gallery</a></h1>
+				<div class="user-display">
+					<span class="welcome"><a href="/users/account/LogOn">Sign In</a></span>
+					<a href="/account/Register" class="register">Sign Up</a>
+				</div>
+			</div>
+		</header>
+		<div id="layout-navigation" class="group">
+			<div class="zone zone-navigation">
+				<nav>
+					<ul class="menu menu-main">
+
+
+						<li class=""><a href="http://extensions.webmatrix.com/">Home</a></li>
+						<li class=""><a href="http://extensions.webmatrix.com/packages">Extensions</a></li>
+						<li class="current"><a href="http://extensions.webmatrix.com/documentation">Documentation</a></li>
+						<li class=""><a href="http://extensions.webmatrix.com/upload/package" class="upload">Upload Extension</a></li>
+					</ul>
+
+					<form id="search-form" action="/packages" method="get">
+					<div id="search">
+						<div>
+							<input type="text" name="q" id="searchTerm" value="Search Extensions" />
+						</div>
+
+						<input type="hidden" name="sortOrder" value="package-download-count" />
+						<input type="submit" value=" " />
+					</div>
+					</form>
+				</nav>
+			</div>
+		</div>
+		<div id="layout-main-page">
+
+			<div id="wmx-side-bar" style="float: left; padding-right: 40px; padding-bottom: 40px;">
+				@RenderSection("sidebar")
+			</div>
+			<div id="doc-content">
+				
+				@RenderBody()
+
+
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+        			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        			var disqus_shortname = 'webmatrix'; // required: replace example with your forum shortname
+
+        			/* * * DON'T EDIT BELOW THIS LINE * * */
+        			(function () {
+        				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        			})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+			</div>
+		</div>
+		<div style="clear: both; height: 10px; width: 100%;"></div>		
+
+	</div>
+	<div id="layout-footer" class="group">
+		<footer id="footer">
+			<h5 class="logo"><a href="#">WebMatrix Gallery</a></h5>
+			<div id="footer-quad" class="group">
+				<div style="margin: 33px 0 0 100px;">
+					<ul class="footer-links">
+						<li><a href="/">Home</a>&nbsp;&#124;&nbsp;</li>
+						<li><a href="/packages">Extensions</a>&nbsp;&#124;&nbsp;</li>
+						<li><a href="/upload/package">Upload</a>&nbsp;&#124;&nbsp;</li>
+						<li><a href="http://msdn.microsoft.com/en-US/cc300389.aspx">Terms of Use</a>&nbsp;&#124;&nbsp;</li>
+						<li><a href="http://privacy.microsoft.com/en-us/default.mspx">Privacy</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="credits">
+				<span class="copyright">&#169; 2012 Microsoft Corp.</span>
+			</div>
+		</footer>
+	</div>
+	<script src="http://extensions.webmatrix.com/Scripts/global.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function () {
+			//$("pre").html($(this).first()).html();//.unwrap().attr("class", "brush: csharp");
+			$('code').contents().unwrap().parent().attr("class", "brush: csharp");
+
+			SyntaxHighlighter.all()
+		});
+		
+	</script>
+
+	  
+
+</body>
+</html>
