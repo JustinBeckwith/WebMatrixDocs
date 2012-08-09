@@ -39,7 +39,7 @@ function generateOutput(dir, callback) {
 						// create the directory in the output tree
 						//console.log('current file: ' + file)
 						var mirrorDir = outputDir + file.substring(2);
-						if (fileNameShort == "Media") {
+						if (fileNameShort == "media") {
 							// just xcopy any media directories							
 							console.log('ncp copy: \r\n\t' + file + '\r\n\t' + mirrorDir);
 							ncp(file, mirrorDir, function(err) {

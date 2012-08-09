@@ -47,7 +47,7 @@ To get started handling events, you need to add an event handler in the overridd
 	}
 
 
-The `Initialize` method is called both when the extension is installed, and every time the extension is loaded in WebMatrix.  The `WorkspaceChanged' event will provide you with the current workspace, which can be used to cusomtize your application.  For example, this snippet of code will ensure that a ribbon group is only visible while the user is in the editor workspace:
+The `Initialize` method is called both when the extension is installed, and every time the extension is loaded in WebMatrix.  The `WorkspaceChanged` event will provide you with the current workspace, which can be used to cusomtize your application.  For example, this snippet of code will ensure that a ribbon group is only visible while the user is in the editor workspace:
 
 
 	private void WebMatrixHost_WorkspaceChanged(object sender, WorkspaceChangedEventArgs e)
